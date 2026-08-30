@@ -89,6 +89,8 @@
 }
 
 /* Age, Residence, Freelance, Address qatorlari */
+
+
 .info_row {
   display: flex;
   align-items: center;
@@ -264,8 +266,10 @@
 }
 
 /* ============================================= */
-/* MIDD FRAME - YUQORI QISM (banner)              */
-/* ============================================= */
+
+
+/* MIDD FRAME - YUQORI QISM             */
+
 .midd_frame .midd_top {
   position: relative;
   width: 970px;
