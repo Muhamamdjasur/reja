@@ -59,13 +59,12 @@ const list = [
             resolve(list[5]);
         }, 1000);
     });
+   }
+  }
 
-
-    // setTimeout(function() {
+   // setTimeout(function() {
     //       callback(null, list[5]);
     // }, 5000);
-}
-  }
 
 //   then/catch
 //   console.log("passed here 0");

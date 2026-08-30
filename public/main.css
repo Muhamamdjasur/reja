@@ -35,7 +35,8 @@
   display: flex;
   flex-direction: column;
 }
- .main_frame .right_frame {
+
+.main_frame .right_frame {
   position: relative;
   width: 108px;
   height: 1315px;
@@ -43,6 +44,8 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding-top: 50px;
+  gap: 25px;
 }
 
 .main_frame .left_1 {
@@ -81,9 +84,82 @@
 .main_frame .left_2 {
   position: relative;
   width: 221px;
-  height: 126px;
+  height: auto;
   margin-left: 44px;
-  background-color: aqua;
+}
+
+/* Age, Residence, Freelance, Address qatorlari */
+.info_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.info_label {
+  background-color: #FFB400;
+  color: #2b2b2b;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.info_value {
+  color: #767676;
+}
+
+.info_green {
+  color: #2ecc71;
+  font-weight: 600;
+}
+
+/* Languages va Skills uchun umumiy stillar */
+.section_title {
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2b2b2b;
+  margin-bottom: 15px;
+}
+
+.lang_row {
+  display: flex;
+  justify-content: space-between;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #2b2b2b;
+  margin-bottom: 5px;
+}
+
+.bar_bg {
+  width: 100%;
+  height: 4px;
+  background-color: #f0f0f6;
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+.bar_fill {
+  height: 4px;
+  background-color: #FFB400;
+  border-radius: 2px;
+}
+
+/* Extra Skills */
+.extra_row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #767676;
+  margin-bottom: 10px;
+}
+
+.extra_icon {
+  font-size: 14px;
 }
 
 .left_1-2 {
@@ -109,10 +185,9 @@
 .main_frame .left_frame .left_3 {
   position: relative;
   width: 220px;
-  height: 153px;
+  height: auto;
   margin-top: 25px;
   margin-left: 45px;
-  background-color: aqua;
 }
 
 .main_frame .left_frame .left_1-3 {
@@ -175,17 +250,161 @@
 .main_frame .left_frame .left_4 {
   position: relative;
   width: 220px;
-  height: 252px;
+  height: auto;
   margin-top: 25px;
   margin-left: 45px;
-  background-color: aqua;
 }
 
 .main_frame .left_frame .left_5 {
   position: relative;
-  width: 186px;
-  height: 148px;
+  width: 220px;
+  height: auto;
   margin-top: 25px;
   margin-left: 45px;
-  background-color: aqua;
+}
+
+/* ============================================= */
+/* MIDD FRAME - YUQORI QISM (banner)              */
+/* ============================================= */
+.midd_frame .midd_top {
+  position: relative;
+  width: 970px;
+  height: 463px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  box-sizing: border-box;
+}
+
+.midd_top .midd_top-left {
+  max-width: 450px;
+}
+
+.midd_top-left h1 {
+  font-family: sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #2b2b2b;
+  margin-bottom: 20px;
+}
+
+.midd_top-left p {
+  font-family: sans-serif;
+  font-size: 15px;
+  color: #767676;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.hire_btn {
+  background: #FFB400;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.midd_top-right img {
+  width: 330px;
+  height: auto;
+}
+
+/* ============================================= */
+/* MIDD FRAME - PASTKI QISM (services)            */
+/* ============================================= */
+.midd_frame .midd_bottom {
+  position: relative;
+  width: 970px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.midd_bottom h2 {
+  font-family: sans-serif;
+  font-size: 28px;
+  color: #2b2b2b;
+  margin-bottom: 15px;
+}
+
+.midd_bottom > p {
+  font-family: sans-serif;
+  font-size: 15px;
+  color: #767676;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+}
+
+.services_grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.service_card {
+  width: 300px;
+  background: #fff;
+  border: 1px solid #f0f0f6;
+  border-radius: 8px;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.service_card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.service_card h3 {
+  font-family: sans-serif;
+  font-size: 18px;
+  color: #2b2b2b;
+  margin-bottom: 8px;
+}
+
+.service_card p {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #767676;
+}
+
+.order_link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #FFB400;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ============================================= */
+/* RIGHT FRAME - ikonkalar                        */
+/* ============================================= */
+.right_icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f6f6;
+}
+
+.right_icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.right_icon-active {
+  background: #FFB400;
 }

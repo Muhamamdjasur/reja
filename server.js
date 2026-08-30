@@ -5,20 +5,19 @@ const http = require("http");
 const fs = require("fs");
 
 let user;
-fs.readFile("database/user.json", "utf-8", (err, data) =>
-{
-    if(err) {
-        console.log("ERROR:", err);
-    } else {
-        user = JSON.parse(data)
-    }
-});
+try {
+    const data = fs.readFileSync("database/user.json", "utf-8");
+    user = JSON.parse(data);
+    console.log("user.json muvaffaqiyatli o'qildi");
+} catch (err) {
+    console.log("ERROR: user.json o'qishda xatolik ->", err.message);
+    user = {}; 
+}
 
 // 1 : Kirish Code
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 // 2 : Session code
 // 3 : Views code
@@ -26,20 +25,14 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4 : Routing code
-// app.get("/hello", function(req, res) {
-//     res.end("<h1>HELLO WORLD</h1>");
-// });
-// app.get("/gift", function(req, res) {
-//     res.end("<h1>Siz sovg'alar bo'limidasiz</h1>");
-// });
 app.post("/create-item", function (req, res) {
     console.log(req.body);
     res.send("Yangi reja qabul qilindi!");
 });
 
-app.get('/author', (req, res) => {
-    res.render("author",  {user: user});
-})
+app.get("/author", function (req, res) {
+    res.render("author", { user: user });
+});
 
 app.get("/", function (req, res) {
     res.render("harid");
@@ -49,4 +42,5 @@ const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT, function () {
     console.log(`The server is running successfully on port: ${PORT}`);
+    console.log(`Rezume sahifa: http://localhost:${PORT}/author`);
 });
