@@ -9,12 +9,12 @@ try {
     user = JSON.parse(data);
     console.log("user.json muvaffaqiyatli o'qildi");
 } catch (err) {
-    console.log("ERROR: user.json o'qishda xatolik ->", err.message);
+    console.log("ERROR: user.json o'qishda xatolik", err.message);
     user = {}; 
 }
 
 // M0ngoDB connect
-// const db = require("./server").db();
+const db = require("./server").db();
 // 1 : Kirish Code
 app.use(express.static("public"));
 app.use(express.json());
@@ -28,7 +28,15 @@ app.set("view engine", "ejs");
 // 4 : Routing code
 app.post("/create-item", function (req, res) {
     console.log(req.body);
-    res.send("Yangi reja qabul qilindi!");
+    const new_reja = req.body.reja;
+    db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
+        if (err) {
+            console.log(err);
+            res.end("somethng went wrong");
+        } else {
+            res.end("added successfully");
+        }
+    });
 });
 
 app.get("/author", function (req, res) {
@@ -36,7 +44,17 @@ app.get("/author", function (req, res) {
 });
 
 app.get("/", function (req, res) {
-    res.render("reja");
+    console.log("user entered /create-item");
+    db.collection("plans")
+    .find()
+    .toArray((err, data) => {
+        if(err) {
+            console.log(err);
+            res.end("somethng went wrong");
+        } else {
+            res.render("reja", {items: data });
+        }
+    })
 });
  
 module.exports = app;
