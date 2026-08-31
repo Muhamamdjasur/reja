@@ -105,20 +105,23 @@ console.log("===================================================================
 
 
 
-function countVowels(word) {
-    let count = 0;
-    let vowels = "aeiou"; 
+// function countVowels(word) {
+//     let count = 0;
+//     let vowels = "aeiou"; 
 
-    for (let i = 0; i < word.length; i++) {
-        let letter = word[i].toLowerCase(); 
-        if (vowels.includes(letter)) {
-            count = count + 1;
-        }
-    }
+//     for (let i = 0; i < word.length; i++) {
+//         let letter = word[i].toLowerCase(); 
+//         if (vowels.includes(letter)) {
+//             count = count + 1;
+//         }
+//     }
 
-    return count;
-}
+//     return count;
+// }
 
 
-console.log(countVowels("engineer")); 
-console.log(countVowels("Tashkent")); 
+// console.log(countVowels("engineer")); 
+// console.log(countVowels("Tashkent")); 
+
+
+countUppercase("Salom DUNYO") // 5
