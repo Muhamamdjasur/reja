@@ -124,4 +124,4 @@ console.log("===================================================================
 // console.log(countVowels("Tashkent")); 
 
 
-countUppercase("Salom DUNYO") // 5
+countUppercase("Salom Ona Vatan") // 3
