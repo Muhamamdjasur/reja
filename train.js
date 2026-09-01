@@ -124,4 +124,16 @@ console.log("===================================================================
 // console.log(countVowels("Tashkent")); 
 
 
-countUppercase("Salom Ona Vatan") // 3
+function countUppercase(str) {
+  let count = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] >= "A" && str[i] <= "Z") {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(countUppercase("Salom Ona Vatan")); // 3
