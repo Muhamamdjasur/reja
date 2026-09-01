@@ -45,3 +45,36 @@ document.getElementById("create-form").addEventListener("submit", function (e) {
         console.log("Iltimos qaytadan harakat qiling!");
     });
 });
+
+document.addEventListener("click", function (e) {
+    // delete operation
+    console.log(e.target);
+    if(e.target.classList.contains("delete-me")) {
+        if (confirm("Aniq o'chirmoqchimisiz?")) {
+            axios.post("/delete-item", {id: e.target.getAttribute("data-id")})
+            .then((response) => {
+                console.log(response.data);
+                e.target.parentElement.parentElement.remove();
+            })
+            .catch((err) => {});
+        }
+    }
+    // edit operation
+    if(e.target.classList.contains("edit-me")) {
+        let userInput = prompt("O'zgartirish kiritish", e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+    );
+        if (userInput) {
+          axios.post("/edit-item", {
+            id: e.target.getAttribute("data-id"),
+            new_input: userInput,
+          }).then(response => {
+               console.log(response.data);
+               e.target.parentElement.parentElement.querySelector(
+                ".item-text"
+               ).innerHTML = userInput;
+          }).catch(err => {
+
+          })
+        }
+    }
+})

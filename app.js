@@ -15,6 +15,7 @@ try {
 
 // M0ngoDB connect
 const db = require("./server").db();
+const mongodb = require("mongodb");
 // 1 : Kirish Code
 app.use(express.static("public"));
 app.use(express.json());
@@ -34,6 +35,26 @@ app.post("/create-item", function (req, res) {
         res.json(data.ops[0]);
     });
 });
+
+app.post("/delete-item", (req, res) => {
+    const id = req.body.id;
+    console.log(id);
+    db.collection("plans").deleteOne({_id: new mongodb.ObjectId(id)}, 
+function (err, data) {
+    res.json({ state: "success"});
+})
+});
+
+app.post("/edit-item", (req, res) => {
+const data = req.body;
+console.log(data);
+db.collection("plans").findOneAndUpdate(
+    {_id: new mongodb.ObjectId(data.id)}, 
+    {$set: {reja: data.new_input}}, 
+    function(err, data) {
+        res.json({ state: "success"});
+    })
+})
 
 app.get("/author", function (req, res) {
     res.render("author", { user: user });
