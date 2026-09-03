@@ -104,7 +104,7 @@ console.log("===================================================================
   console.log("===========================================================================================");
 
 
-
+// A MITASK
 // function countVowels(word) {
 //     let count = 0;
 //     let vowels = "aeiou"; 
@@ -123,17 +123,26 @@ console.log("===================================================================
 // console.log(countVowels("engineer")); 
 // console.log(countVowels("Tashkent")); 
 
+// B MITASK
+// function countUppercase(str) {
+//   let count = 0;
 
-function countUppercase(str) {
-  let count = 0;
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] >= "A" && str[i] <= "Z") {
+//       count++;
+//     }
+//   }
 
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] >= "A" && str[i] <= "Z") {
-      count++;
-    }
-  }
+//   return count;
+// }
 
-  return count;
+// console.log(countUppercase("Salom Ona Vatan")); // 3
+
+// C MITASK
+
+function tekshir(a, b) {
+  return a.split("").sort().join("") === b.split("").sort().join("");
 }
 
-console.log(countUppercase("Salom Ona Vatan")); // 3
+console.log(tekshir("do'stlar", "laylak")); // False
+console.log(tekshir("olma", "amol")); // True

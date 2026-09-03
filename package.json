@@ -14,7 +14,7 @@
   "dependencies": {
     "ejs": "^6.0.1",
     "express": "^5.2.1",
-    "mongodb": "^3.7.6",
+    "mongodb": "^3.7.4",
     "nodemon": "^2.0.22"
   }
 }
