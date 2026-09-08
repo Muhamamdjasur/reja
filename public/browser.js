@@ -1,3 +1,5 @@
+// const { response } = require("express");
+
 console.log("FrontEnd JS ishga tushdi");
 
 function itemTemplate(item) {
@@ -5,7 +7,6 @@ function itemTemplate(item) {
         class="list-group-item list-group-item-info d-flex align-items-center justify-content-between">
          <span class="item-text">
             ${item.reja}
-            NodeJS Express organizm
             </span>
 
         <div>
@@ -56,12 +57,16 @@ document.addEventListener("click", function (e) {
                 console.log(response.data);
                 e.target.parentElement.parentElement.remove();
             })
-            .catch((err) => {});
+            .catch((err) => {
+              console.log("Please try again!");
+            });
         }
     }
     // edit operation
     if(e.target.classList.contains("edit-me")) {
-        let userInput = prompt("O'zgartirish kiritish", e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+        let userInput = prompt(
+          "O'zgartirish kiriting", 
+          e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
     );
         if (userInput) {
           axios.post("/edit-item", {
@@ -73,8 +78,17 @@ document.addEventListener("click", function (e) {
                 ".item-text"
                ).innerHTML = userInput;
           }).catch(err => {
-
+            console.log("Please try again!");
           })
         }
     }
-})
+});
+
+document.getElementById("clean-all").addEventListener("click", function () {
+  axios.post("/delete-all", { delete_all: true }).then((response) => {
+    alert(response.data.state);
+    document.location.reload();
+
+  });
+});
+
