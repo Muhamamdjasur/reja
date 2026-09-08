@@ -150,49 +150,61 @@ console.log("===================================================================
 
 // D TASK
 
-class Kassa {
-  constructor(non, sut, tuxum) {
-    this.non = non;
-    this.sut = sut;
-    this.tuxum = tuxum;
-  }
+// class Kassa {
+//   constructor(non, sut, tuxum) {
+//     this.non = non;
+//     this.sut = sut;
+//     this.tuxum = tuxum;
+//   }
 
-  qoldiq() {
-    let vaqt = new Date().toLocaleTimeString();
-    console.log("Hozir " + vaqt + " da " + this.non + " ta non, " + this.sut + " ta sut, " + this.tuxum + " ta tuxum bor");
-  }
+//   qoldiq() {
+//     let vaqt = new Date().toLocaleTimeString();
+//     console.log("Hozir " + vaqt + " da " + this.non + " ta non, " + this.sut + " ta sut, " + this.tuxum + " ta tuxum bor");
+//   }
 
-  sotish(nomi, son) {
-    let vaqt = new Date().toLocaleTimeString();
-    if (nomi === "non") {
-      this.non = this.non - son;
-    }
-    if (nomi === "sut") {
-      this.sut = this.sut - son;
-    }
-    if (nomi === "tuxum") {
-      this.tuxum = this.tuxum - son;
-    }
-    console.log(vaqt + " da " + son + " ta " + nomi + " sotildi");
-  }
+//   sotish(nomi, son) {
+//     let vaqt = new Date().toLocaleTimeString();
+//     if (nomi === "non") {
+//       this.non = this.non - son;
+//     }
+//     if (nomi === "sut") {
+//       this.sut = this.sut - son;
+//     }
+//     if (nomi === "tuxum") {
+//       this.tuxum = this.tuxum - son;
+//     }
+//     console.log(vaqt + " da " + son + " ta " + nomi + " sotildi");
+//   }
 
-  qabul(nomi, son) {
-    let vaqt = new Date().toLocaleTimeString();
-    if (nomi === "non") {
-      this.non = this.non + son;
-    }
-    if (nomi === "sut") {
-      this.sut = this.sut + son;
-    }
-    if (nomi === "tuxum") {
-      this.tuxum = this.tuxum + son;
-    }
-    console.log(vaqt + " da " + son + " ta " + nomi + " keldi");
+//   qabul(nomi, son) {
+//     let vaqt = new Date().toLocaleTimeString();
+//     if (nomi === "non") {
+//       this.non = this.non + son;
+//     }
+//     if (nomi === "sut") {
+//       this.sut = this.sut + son;
+//     }
+//     if (nomi === "tuxum") {
+//       this.tuxum = this.tuxum + son;
+//     }
+//     console.log(vaqt + " da " + son + " ta " + nomi + " keldi");
+//   }
+// }
+
+// let kassa = new Kassa(5, 3, 10);
+// kassa.qoldiq();
+// kassa.sotish("non", 2);
+// kassa.qabul("tuxum", 5);
+// kassa.qoldiq();
+
+
+
+function getReverse(str) {
+  let natija = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    natija = natija + str[i];
   }
+  return natija;
 }
 
-let kassa = new Kassa(5, 3, 10);
-kassa.qoldiq();
-kassa.sotish("non", 2);
-kassa.qabul("tuxum", 5);
-kassa.qoldiq();
+console.log(getReverse("hello")); // "olleh"
