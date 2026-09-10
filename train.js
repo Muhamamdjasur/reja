@@ -199,12 +199,32 @@ console.log("===================================================================
 
 
 
-function getReverse(str) {
-  let natija = "";
-  for (let i = str.length - 1; i >= 0; i--) {
-    natija = natija + str[i];
+// function getReverse(str) {
+//   let natija = "";
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     natija = natija + str[i];
+//   }
+//   return natija;
+// }
+
+// console.log(getReverse("hello")); // "olleh"
+
+
+
+
+// G TASK
+
+function getHighestIndex(arr) {
+  let highest = 0;
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > arr[highest]) {
+      highest = i;
+    }
   }
-  return natija;
+
+  return highest;
 }
 
-console.log(getReverse("hello")); // "olleh"
+console.log(getHighestIndex([5, 21, 12, 21, 8]));
+// 1
