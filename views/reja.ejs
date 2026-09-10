@@ -1,14 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>REJA</title>
 
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-  />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+
+  <style>
+    /* ====== REJA — Titanium Glass Design ====== */
+    :root {
+      --space-1: #0d0d0f;
+      --space-2: #1a1a1d;
+      --glass-fill: rgba(255, 255, 255, 0.055);
+      --glass-fill-hover: rgba(255, 255, 255, 0.09);
+      --glass-border: rgba(255, 255, 255, 0.10);
+      --glass-border-strong: rgba(255, 255, 255, 0.18);
+      --accent-blue: #0a84ff;
+      --accent-violet: #bf5af2;
+      --accent-gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+      --danger: #ff453a;
+      --danger-soft: rgba(255, 69, 58, 0.14);
+      --text-primary: #f5f5f7;
+      --text-secondary: #98989d;
+      --text-tertiary: #636366;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-pill: 999px;
+      --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse 1000px 500px at 10% -10%, rgba(10, 132, 255, 0.10), transparent 55%),
+        radial-gradient(ellipse 800px 600px at 100% 10%, rgba(191, 90, 242, 0.08), transparent 55%),
+        radial-gradient(ellipse 900px 700px at 50% 120%, rgba(255, 255, 255, 0.03), transparent 60%),
+        linear-gradient(160deg, var(--space-1) 0%, var(--space-2) 45%, var(--space-1) 100%) !important;
+      background-attachment: fixed;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+      color: var(--text-primary);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 640px !important;
+      padding-top: 56px;
+      padding-bottom: 40px;
+    }
+
+    h1.display-4 {
+      font-weight: 700;
+      font-size: clamp(30px, 5vw, 42px);
+      letter-spacing: -0.02em;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 40px;
+      padding: 0 !important;
+    }
+
+    .jumbotron {
+      background: var(--glass-fill) !important;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg) !important;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.06) inset,
+        0 24px 48px -24px rgba(0, 0, 0, 0.6);
+      margin-bottom: 32px;
+      transition: border-color 0.4s var(--ease-smooth);
+    }
+
+    .jumbotron:focus-within {
+      border-color: var(--glass-border-strong);
+    }
+
+    #create-field.form-control {
+      background: transparent !important;
+      border: none !important;
+      border-bottom: 1.5px solid var(--glass-border-strong) !important;
+      border-radius: 0 !important;
+      color: var(--text-primary) !important;
+      font-size: 16px;
+      padding: 10px 4px !important;
+      box-shadow: none !important;
+      transition: border-color 0.35s var(--ease-smooth);
+    }
+
+    #create-field.form-control::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    #create-field.form-control:focus {
+      border-bottom-color: var(--accent-blue) !important;
+    }
+
+    .btn {
+      font-weight: 600;
+      font-size: 14px;
+      border: none !important;
+      transition: transform 0.18s var(--ease-spring), box-shadow 0.25s var(--ease-smooth), opacity 0.25s;
+    }
+
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient) !important;
+      border-radius: var(--radius-pill) !important;
+      padding: 10px 24px !important;
+      box-shadow: 0 8px 24px -8px rgba(10, 132, 255, 0.55);
+      color: #fff !important;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 10px 30px -6px rgba(10, 132, 255, 0.7);
+      opacity: 0.94;
+    }
+
+    .btn-secondary {
+      background: var(--glass-fill-hover) !important;
+      border: 1px solid var(--glass-border-strong) !important;
+      border-radius: var(--radius-pill) !important;
+      color: var(--text-primary) !important;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14) !important;
+    }
+
+    .btn-danger {
+      background: var(--danger-soft) !important;
+      border: 1px solid rgba(255, 69, 58, 0.35) !important;
+      border-radius: var(--radius-pill) !important;
+      color: #ff8a80 !important;
+    }
+
+    .btn-danger:hover {
+      background: rgba(255, 69, 58, 0.22) !important;
+      color: #ffb4ad !important;
+    }
+
+    #clean-all.btn-danger {
+      display: block;
+      margin: 28px auto 0;
+      padding: 11px 28px !important;
+    }
+
+    #item-list.list-group {
+      gap: 12px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .list-group-item {
+      background: var(--glass-fill) !important;
+      border: 1px solid var(--glass-border) !important;
+      border-radius: var(--radius-md) !important;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: 16px 20px !important;
+      transition: transform 0.3s var(--ease-smooth), background 0.3s, border-color 0.3s;
+    }
+
+    .list-group-item:hover {
+      background: var(--glass-fill-hover) !important;
+      border-color: var(--glass-border-strong) !important;
+      transform: translateX(2px);
+    }
+
+    .list-group-item-info {
+      color: var(--text-primary) !important;
+    }
+
+    .item-text {
+      font-size: 15.5px;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+    }
+  </style>
+
+</head>
+
 </head>
 
 <body style="background-color: #b8bbd1">
@@ -23,20 +204,10 @@
 
         <div class="d-flex align-items-center">
 
-          <input
-            id="create-field"
-            name="reja"
-            autofocus
-            autocomplete="off"
-            class="form-control mr-3"
-            type="text"
-            style="flex: 1"
-          />
+          <input id="create-field" name="reja" autofocus autocomplete="off" class="form-control mr-3" type="text"
+            style="flex: 1" />
 
-          <button
-            class="btn btn-primary"
-            style="border-radius: 20px"
-          >
+          <button class="btn btn-primary" style="border-radius: 20px">
             Yangi Reja Qoshish
           </button>
 
@@ -47,42 +218,35 @@
 
     <ul id="item-list" class="list-group pb-5">
 
-     <% items.map(function(item) { %>
+      <% items.map(function(item) { %>
 
-      <li
-        class="list-group-item list-group-item-info d-flex align-items-center justify-content-between"
-      >
+        <li class="list-group-item list-group-item-info d-flex align-items-center justify-content-between">
 
-        <span class="item-text">
+          <span class="item-text">
             <%= item.reja %>
-            </span>
+          </span>
 
-        <div>
+          <div>
 
-          <button
-            data-id="<%=item._id%>"
-            class="edit-me btn btn-secondary btn-sm mr-1"
-          >
-            Ozgartirish
-          </button>
+            <button data-id="<%=item._id%>" class="edit-me btn btn-secondary btn-sm mr-1">
+              Ozgartirish
+            </button>
 
-          <button
-            data-id="<%=item._id%>"
-            class="delete-me btn btn-danger btn-sm"
-          >
-            Ochirish
-          </button>
+            <button data-id="<%=item._id%>" class="delete-me btn btn-danger btn-sm">
+              Ochirish
+            </button>
 
-        </div>
+          </div>
 
-      </li>
-      <% }) %>
+        </li>
+        <% }) %>
     </ul>
-     <button id="clean-all" class="btn btn-danger" style="border-radius: 20px">
-        Hamma Rejalarni O'chirish
-     </button>
+    <button id="clean-all" class="btn btn-danger" style="border-radius: 20px">
+      Hamma Rejalarni O'chirish
+    </button>
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/browser.js"></script>
 </body>
+
 </html>

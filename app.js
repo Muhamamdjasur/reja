@@ -10,7 +10,7 @@ try {
     console.log("user.json muvaffaqiyatli o'qildi");
 } catch (err) {
     console.log("ERROR: user.json o'qishda xatolik", err.message);
-    user = {}; 
+    user = {};
 }
 
 // M0ngoDB connect
@@ -39,21 +39,21 @@ app.post("/create-item", function (req, res) {
 app.post("/delete-item", (req, res) => {
     const id = req.body.id;
     console.log(id);
-    db.collection("plans").deleteOne({_id: new mongodb.ObjectId(id)}, 
-function (err, data) {
-    res.json({ state: "success"});
-})
+    db.collection("plans").deleteOne({ _id: new mongodb.ObjectId(id) },
+        function (err, data) {
+            res.json({ state: "success" });
+        })
 });
 
 app.post("/edit-item", (req, res) => {
-const data = req.body;
-console.log(data);
-db.collection("plans").findOneAndUpdate(
-    {_id: new mongodb.ObjectId(data.id)}, 
-    {$set: {reja: data.new_input}}, 
-    function(err, data) {
-        res.json({ state: "success"});
-    });
+    const data = req.body;
+    console.log(data);
+    db.collection("plans").findOneAndUpdate(
+        { _id: new mongodb.ObjectId(data.id) },
+        { $set: { reja: data.new_input } },
+        function (err, data) {
+            res.json({ state: "success" });
+        });
 });
 
 // app.get("/author", function (req, res) {
@@ -61,9 +61,9 @@ db.collection("plans").findOneAndUpdate(
 // });
 
 app.post("/delete-all", (req, res) => {
-    if(req.body.delete_all) {
-        db.collection("plans").deleteMany( function () {
-          res.json({ state: "hamma rejalar ochirildi" });
+    if (req.body.delete_all) {
+        db.collection("plans").deleteMany(function () {
+            res.json({ state: "hamma rejalar ochirildi" });
         });
     }
 });
@@ -71,15 +71,15 @@ app.post("/delete-all", (req, res) => {
 app.get("/", function (req, res) {
     console.log("user entered /create-item");
     db.collection("plans")
-    .find()
-    .toArray((err, data) => {
-        if(err) {
-            console.log(err);
-            res.end("somethng went wrong");
-        } else {
-            res.render("reja", {items: data });
-        }
-    })
+        .find()
+        .toArray((err, data) => {
+            if (err) {
+                console.log(err);
+                res.end("somethng went wrong");
+            } else {
+                res.render("reja", { items: data });
+            }
+        })
 });
- 
+
 module.exports = app;
