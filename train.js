@@ -212,19 +212,36 @@ console.log("===================================================================
 
 
 
+// F TASK
+
+// function getHighestIndex(arr) {
+//   let highest = 0;
+
+//   for (let i = 1; i < arr.length; i++) {
+//     if (arr[i] > arr[highest]) {
+//       highest = i;
+//     }
+//   }
+
+//   return highest;
+// }
+
+// console.log(getHighestIndex([5, 21, 12, 21, 8]));
+// // 1
+
+
 // G TASK
 
-function getHighestIndex(arr) {
-  let highest = 0;
+function getLowestIndex(arr) {
+  let index = 0;
 
   for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > arr[highest]) {
-      highest = i;
+    if (arr[i] < arr[index]) {
+      index = i;
     }
   }
 
-  return highest;
+  return index;
 }
 
-console.log(getHighestIndex([5, 21, 12, 21, 8]));
-// 1
+console.log(getLowestIndex([7, 3, 9, 3, 5]));
