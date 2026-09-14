@@ -212,7 +212,7 @@ console.log("===================================================================
 
 
 
-// F TASK
+// G TASK
 
 // function getHighestIndex(arr) {
 //   let highest = 0;
@@ -230,18 +230,21 @@ console.log("===================================================================
 // // 1
 
 
-// G TASK
+// F TASK
 
-function getLowestIndex(arr) {
-  let index = 0;
+function findDoublers(str) {
+  let result = "";
 
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] < arr[index]) {
-      index = i;
+  for (let i = 0; i < str.length; i++) {
+    if (result.includes(str[i])) {
+      return true;
     }
+
+    result += str[i];
   }
 
-  return index;
+  return false;
 }
 
-console.log(getLowestIndex([7, 3, 9, 3, 5]));
+console.log(findDoublers("hello")); // true
+console.log(findDoublers("abc"));   // false
