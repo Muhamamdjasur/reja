@@ -232,19 +232,36 @@ console.log("===================================================================
 
 // F TASK
 
-function findDoublers(str) {
-  let result = "";
+// function findDoublers(str) {
+//   let result = "";
+
+//   for (let i = 0; i < str.length; i++) {
+//     if (result.includes(str[i])) {
+//       return true;
+//     }
+
+//     result += str[i];
+//   }
+
+//   return false;
+// }
+
+// console.log(findDoublers("hello")); // true
+// console.log(findDoublers("abc"));   // false
+
+
+//  K TASK
+
+function countVowels(str) {
+  let count = 0;
 
   for (let i = 0; i < str.length; i++) {
-    if (result.includes(str[i])) {
-      return true;
+    if ("aeiou".includes(str[i])) {
+      count++;
     }
-
-    result += str[i];
   }
 
-  return false;
+  return count;
 }
 
-console.log(findDoublers("hello")); // true
-console.log(findDoublers("abc"));   // false
+console.log(countVowels("string")); // 1
