@@ -252,16 +252,28 @@ console.log("===================================================================
 
 //  K TASK
 
-function countVowels(str) {
-  let count = 0;
+// function countVowels(str) {
+//   let count = 0;
 
-  for (let i = 0; i < str.length; i++) {
-    if ("aeiou".includes(str[i])) {
-      count++;
-    }
-  }
+//   for (let i = 0; i < str.length; i++) {
+//     if ("aeiou".includes(str[i])) {
+//       count++;
+//     }
+//   }
 
-  return count;
+//   return count;
+// }
+
+// console.log(countVowels("string")); // 1
+
+
+//  L TASK
+
+function reverseSentence(str) {
+  return str
+    .split(" ")
+    .map(word => word.split("").reverse().join(""))
+    .join(" ");
 }
 
-console.log(countVowels("string")); // 1
+console.log(reverseSentence("I love reading books"));
